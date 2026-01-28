@@ -11,6 +11,6 @@ For more information, please refer to the official documentation at: https://cor
 This image is intended to be used for building the [Home Assistant addon](https://www.home-assistant.io/addons/).
 If you are looking for the addon, please go to: https://github.com/hanwg/hassio-addons.
 
-[releases-shield]: https://img.shields.io/github/release/hanwg/telegram-bot-api.svg
+[releases-shield]: https://img.shields.io/github/v/release/hanwg/telegram-bot-api.svg
 [license-shield]: https://img.shields.io/github/license/hanwg/telegram-bot-api.svg
 [amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
