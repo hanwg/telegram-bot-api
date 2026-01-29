@@ -22,7 +22,7 @@ RUN echo "123" > /usr/local/bin/telegram-bot-api
 # copy built binaries to final image
 
 ARG BUILD_ARCH
-FROM ghcr.io/home-assistant/${BUILD_ARCH}-base
+FROM ghcr.io/home-assistant/${BUILD_ARCH}-base:latest
 COPY --from=build /usr/local/bin/telegram-bot-api /usr/local/bin/telegram-bot-api
 
 ARG BUILD_NAME
