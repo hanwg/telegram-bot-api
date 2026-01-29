@@ -8,23 +8,33 @@ env:
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
+
   publish:
     name: Publish
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write
+
     strategy:
       matrix:
-        arch: ["aarch64", "amd64"]
+        arch: ["amd64", "aarch64"]
+
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v6
+
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v3
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
+      
       - name: Get BUILD_VERSION
         run: echo "$(grep "ARG BUILD_VERSION=" docker/Dockerfile | cut -d' ' -f2 | tr -d '"')" >> $GITHUB_ENV
+      
       - name: Build and publish
         uses: docker/build-push-action@master
         with:
