@@ -1,7 +1,6 @@
 ARG BUILD_NAME="Home Assistant Addon: Telegram Bot API"
 ARG BUILD_DESCRIPTION="Docker image for Telegram Bot API. Built for Home Assistant as an addon."
 ARG BUILD_VERSION="9.3"
-ARG BUILD_FROM
 
 # build from source
 
@@ -21,13 +20,12 @@ RUN echo "123" > /usr/local/bin/telegram-bot-api
 
 # copy built binaries to final image
 
-ARG BUILD_FROM
-FROM $BUILD_FROM
+ARG BUILD_ARCH
+FROM ghcr.io/home-assistant/${BUILD_ARCH}-base
 COPY --from=build /usr/local/bin/telegram-bot-api /usr/local/bin/telegram-bot-api
 
 ARG BUILD_NAME
 ARG BUILD_DESCRIPTION
-ARG BUILD_ARCH
 ARG BUILD_VERSION
 LABEL \
   io.hass.name="${BUILD_NAME}" \
