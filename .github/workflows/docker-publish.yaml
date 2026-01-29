@@ -47,6 +47,6 @@ jobs:
           context: docker
           push: true
           platforms: linux/${{ env.PLATFORM }}
-          tags: ${{ env.REGISTRY }}/${{ github.repository }}:${{ env.BUILD_VERSION }}
+          tags: ${{ env.REGISTRY }}/${{ github.repository }}-${{ matrix.arch }}:${{ env.BUILD_VERSION }}
           build-args: |
             "BUILD_ARCH=${{ matrix.arch }}"
