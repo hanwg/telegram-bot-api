@@ -30,4 +30,5 @@ jobs:
         with:
           context: docker
           push: true
+          tag: ghcr.io/hanwg/telegram-bot-api:${{ env.BUILD_VERSION }}
           build-args: BUILD_ARCH=${{ matrix.arch }},BUILD_FROM=ghcr.io/home-assistant/${{ matrix.arch }}-base
