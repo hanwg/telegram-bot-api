@@ -24,7 +24,7 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Get BUILD_VERSION
-        run: echo "$(grep "ARG BUILD_VERSION=" Dockerfile | cut -d' ' -f2)" >> $GITHUB_ENV
+        run: echo "$(grep "ARG BUILD_VERSION=" docker/Dockerfile | cut -d' ' -f2)" >> $GITHUB_ENV
       - name: Build and publish
         uses: docker/build-push-action@master
         with:
