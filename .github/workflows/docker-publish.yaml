@@ -38,9 +38,6 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@master
 
       - name: Get BUILD_VERSION
         run: echo "$(grep "ARG BUILD_VERSION=" docker/Dockerfile | cut -d' ' -f2 | tr -d '"')" >> $GITHUB_ENV
