@@ -3,6 +3,10 @@ name: "Publish"
 on:
   workflow_dispatch:
 
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
 jobs:
   publish:
     name: Publish
@@ -16,13 +20,12 @@ jobs:
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v3
         with:
-          registry: ghcr.io
+          registry: ${{ env.REGISTRY }}
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Publish
-        uses: home-assistant/builder@master
+      - name: Build and publish
+        uses: docker/build-push-action@master
         with:
-          args: |
-            --${{ matrix.arch }} \
-            --target docker \
-            --docker-hub "ghcr.io/hanwg"
+          context: docker
+          push: true
+          build-args: BUILD_ARCH=${{ matrix.arch }},BUILD_FROM=ghcr.io/home-assistant/${{ matrix.arch }}-base
