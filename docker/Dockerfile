@@ -28,6 +28,7 @@ COPY --from=build /usr/local/bin/telegram-bot-api /usr/local/bin/telegram-bot-ap
 ARG BUILD_NAME
 ARG BUILD_DESCRIPTION
 ARG BUILD_VERSION
+ARG BUILD_ARCH
 LABEL \
   io.hass.name="${BUILD_NAME}" \
   io.hass.description="${BUILD_DESCRIPTION}" \

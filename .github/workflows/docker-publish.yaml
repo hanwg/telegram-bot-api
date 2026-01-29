@@ -43,6 +43,6 @@ jobs:
         with:
           context: docker
           push: true
-          tags: ${{ env.REGISTRY }}/${{ github.repository_owner }}/${{ github.repository }}:${{ env.BUILD_VERSION }}
+          tags: ${{ env.REGISTRY }}/${{ github.repository }}:${{ env.BUILD_VERSION }}
           build-args: |
             "BUILD_ARCH=${{ matrix.arch }}"
