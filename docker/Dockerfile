@@ -23,7 +23,13 @@ RUN \
 
 ARG BUILD_ARCH
 FROM ghcr.io/home-assistant/${BUILD_ARCH}-base:latest
+
 COPY --from=build /usr/local/bin/telegram-bot-api /usr/local/bin/telegram-bot-api
+COPY run.sh /
+
+RUN chmod a+x /run.sh
+
+CMD [ "/run.sh" ]
 
 ARG BUILD_NAME
 ARG BUILD_DESCRIPTION
