@@ -25,4 +25,5 @@ mkdir -p /data/telegram-bot-api
   --api-hash="${API_HASH}" \
   --local \
   --dir=/data/telegram-bot-api \
-  --verbosity="${LOG_LEVEL}"
+  --verbosity="${LOG_LEVEL}" \
+  --http-stat-port=8082
