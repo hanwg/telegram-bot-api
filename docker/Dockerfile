@@ -1,6 +1,6 @@
 ARG BUILD_NAME="Home Assistant Addon: Telegram Bot API"
 ARG BUILD_DESCRIPTION="Docker image for Telegram Bot API. Built for Home Assistant as an addon."
-ARG BUILD_VERSION="9.3"
+ARG BUILD_VERSION="9.4"
 ARG BUILD_ARCH="amd64"
 
 # build from source
